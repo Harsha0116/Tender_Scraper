@@ -115,6 +115,23 @@ SQLite database with one row per scraper run. Inspect with:
 sqlite3 runs_metadata.db \
   "SELECT run_id, start_time, tenders_saved, failures, duration_seconds FROM runs_metadata;"
 ```
+---
+
+## Running Tests
+
+The test suite validates all four stages of the pipeline — encryption, 
+parsing, cleaning, and persistence — without making any real network calls.
+
+### Install test dependencies
+```bash
+pip install pytest pycryptodome requests beautifulsoup4 cryptography
+```
+
+### Run all tests
+```bash
+cd tender_scraper
+pytest
+```
 
 ---
 
